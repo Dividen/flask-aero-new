@@ -5,15 +5,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Login</h4>
+                        <h4 class="card-title">Авторизация</h4>
 
                         <br />
                         {% if msg %}
                             <p>{{ msg | safe }}</p>
                         {% else %}
-                            Use default credentials: test / pass
+                            Используйте логин и пароль: test / pass
                             <br />
-                            OR <a href={{ url_for('register') }} >create your own user</a>
+                            Либо <a href={{ url_for('register') }} >Создайте нового пользователя</a>
                         {% endif %}
                     </div>
 
@@ -23,11 +23,11 @@
                             
                             {{ form.hidden_tag() }}
 
-                            <div class="row">
+                            <div class="row" >
 
                                 <div class="col-md-1 px-1">
                                     <div class="form-group">
-                                        <label>Username</label>
+                                        <label>Логин</label>
                                     </div>
                                 </div>
 
@@ -42,7 +42,7 @@
 
                                 <div class="col-md-1 pl-1">
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <label>Пароль</label>
                                     </div>
                                 </div>
 
@@ -55,7 +55,7 @@
                             </div>
 
                             <input type='submit' name='submit' value='Login' class="primary"/> 
-                            &nbsp; &nbsp; Don't have an account? <a href={{ url_for('register') }} >Register</a>
+                            &nbsp; &nbsp; Нет учетной записи? <a href={{ url_for('register') }} >Зарегестрироваться</a>
                             <div class="clearfix"></div>
                         </form>
                     </div>

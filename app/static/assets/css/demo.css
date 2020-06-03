@@ -2,6 +2,10 @@
     margin-bottom: 20px;
 }
 
+.special-card {
+            background-color: rgba(245, 245, 245, 0.4) !important;
+        }
+
 .tim-white-buttons {
     background-color: #777777;
 }

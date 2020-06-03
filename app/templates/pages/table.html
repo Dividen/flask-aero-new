@@ -1,133 +1,75 @@
-
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover">
-                                <div class="card-header ">
-                                    <h4 class="card-title">Striped Table with Hover</h4>
-                                    <p class="card-category">Here is a subtitle for this table</p>
-                                </div>
-                                <div class="card-body table-full-width table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Salary</th>
-                                            <th>Country</th>
-                                            <th>City</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Dakota Rice</td>
-                                                <td>$36,738</td>
-                                                <td>Niger</td>
-                                                <td>Oud-Turnhout</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Minerva Hooper</td>
-                                                <td>$23,789</td>
-                                                <td>Curaçao</td>
-                                                <td>Sinaai-Waas</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sage Rodriguez</td>
-                                                <td>$56,142</td>
-                                                <td>Netherlands</td>
-                                                <td>Baileux</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Philip Chaney</td>
-                                                <td>$38,735</td>
-                                                <td>Korea, South</td>
-                                                <td>Overland Park</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Doris Greene</td>
-                                                <td>$63,542</td>
-                                                <td>Malawi</td>
-                                                <td>Feldkirchen in Kärnten</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Mason Porter</td>
-                                                <td>$78,615</td>
-                                                <td>Chile</td>
-                                                <td>Gloucester</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="card card-plain table-plain-bg">
-                                <div class="card-header ">
-                                    <h4 class="card-title">Table on Plain Background</h4>
-                                    <p class="card-category">Here is a subtitle for this table</p>
-                                </div>
-                                <div class="card-body table-full-width table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Salary</th>
-                                            <th>Country</th>
-                                            <th>City</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Dakota Rice</td>
-                                                <td>$36,738</td>
-                                                <td>Niger</td>
-                                                <td>Oud-Turnhout</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Minerva Hooper</td>
-                                                <td>$23,789</td>
-                                                <td>Curaçao</td>
-                                                <td>Sinaai-Waas</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sage Rodriguez</td>
-                                                <td>$56,142</td>
-                                                <td>Netherlands</td>
-                                                <td>Baileux</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Philip Chaney</td>
-                                                <td>$38,735</td>
-                                                <td>Korea, South</td>
-                                                <td>Overland Park</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Doris Greene</td>
-                                                <td>$63,542</td>
-                                                <td>Malawi</td>
-                                                <td>Feldkirchen in Kärnten</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Mason Porter</td>
-                                                <td>$78,615</td>
-                                                <td>Chile</td>
-                                                <td>Gloucester</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card strpied-tabled-with-hover">
+               <div class="card-header ">
+                  <h4 class="card-title">Предстоящие рейсы</h4>
+               </div>
+               <div class="card-body table-full-width table-responsive">
+                  <table class="sortable table table-hover table-striped">
+                     <thead>
+                        <th>Номер рейса</th>
+                        <th>Город отправления</th>
+                        <th>Город прибытия</th>
+                        <th>Категория опасности</th>
+                        <th>Вероятность инцидента</th>
+                        <th>Дата полета</th>
+                     </thead>
+                     {% for p in passages %}
+                     <tr>
+                        <td>{{ p.FltNumber }}</td>
+                        <td>{{ p.OrigCity }}</td>
+                        <td>{{ p.DestCity }}</td>
+                        <td>{{ p.DangerStatus }}</td>
+                        <td>
+                           <progress class="progress progress-striped" value={{ p.DangerCase }} max="1"></progress>
+                        </td>
+                        <td>{{ p.FlightDate }}</td>
+                     </tr>
+                     {% endfor %}
+                  </table>
+               </div>
             </div>
+         </div>
+         <div class="col-md-12">
+            <div class="content">
+               <div class="card-body">
+                  <div class="card">
+                     <div class="card-header">
+                        <h4 class="card-title">Фильтры</h4>
+                     </div>
+                     <form class="row" role="search" method="post" action=/table/search>
+                        <div class="col-md-3">
+                           {{ search.example}}
+                            <div class="col-md">
+                            {{ search.Time }}
+                                </div>
+                        </div>
+                        <div class="col-md-offset-2">
+                           <label>Город отправления</label>
+                        </div>
+                        <div class="col-md-3">
+                           {{ search.origcity(placeholder="OrigCity") }}
+                           <br>
+                           <br>
+                           {{ search.search(class_="btn btn-info btn-fill pull-right")}}
+                        </div>
+                        <div class="col-md-offset-2">
+                           <div class="form-group">
+                              <label>Город назначения</label>
+                           </div>
+                        </div>
+                        <div class="col-md-2 px-1">
+                           <div class="form-group">
+                              {{ search.destcity(placeholder="DestCity")}}
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

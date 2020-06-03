@@ -159,10 +159,10 @@ demo = {
                 left: 0
             },
         }
+    },
 
-        var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+    GetVariables: function (labes,datasets) {
 
-        // lbd.startAnimationForLineChart(dailySalesChart);
     },
 
     initDashboardPageCharts: function() {
@@ -187,7 +187,9 @@ demo = {
         Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
         Chartist.Pie('#chartPreferences', {
-            labels: ['53%', '36%', '11%'],
+            labels: [{% for item in labels %}
+                        "{{item}}",
+                        {% endfor %}],
             series: [53, 36, 11]
         });
 
@@ -363,6 +365,10 @@ demo = {
         // //start animation for the Emails Subscription Chart
         // lbd.startAnimationForBarChart(emailsSubscriptionChart);
 
+		 var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+        // lbd.startAnimationForLineChart(dailySalesChart);
+        ////////////////////////////////////////////////////
     },
 
     initGoogleMaps: function() {
@@ -505,7 +511,7 @@ demo = {
 
         $.notify({
             icon: "nc-icon nc-app",
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+            message: "1Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
 
         }, {
             type: type[color],

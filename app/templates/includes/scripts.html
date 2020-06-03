@@ -13,15 +13,126 @@
 <script src="/static/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="/static/assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
-<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
-<script src="/static/assets/js/demo.js"></script>
+<script src="/static/assets/demo.js"></script>
+<script src="/static/assets/sorttable.js"></script>
+<script src="/static/assets/Radar.js"></script>
+<script src="/static/assets/js/plugins/Chart.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
+        new Chart(document.getElementById("radar-chart"), {
+            type: 'radar',
+            data: {
+                labels: ["Признаки стресса", "Интерес к людям", "Интерес к учебе", "Признаки риска экстремизма", "Интерес к искуству"],
+                datasets: [
+                     {
+                        label: "Характеристики",
+                        fill: true,
+                        backgroundColor: "rgba(255,99,132,0.2)",
+                        borderColor: "rgba(255,99,132,1)",
+                        pointBorderColor: "#fff",
+                        pointBackgroundColor: "rgba(255,99,132,1)",
+                        pointBorderColor: "#fff",
+                        data: [{{ clients.Stress }},{{ clients.Human }},{{ clients.Study }},{{ clients.Ekstremizm }},{{ clients.Art }}]
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Психологическое состояние'
+                }
+            }
+        });
 
-        demo.showNotification();
+        var ctx = document.getElementById("myChart");
+        var chartData = {
+            labels: [
+                "Сензитив",
+                "Лабил",
+                "Астеник",
+                "Гипертим",
+                "Эпилептоид",
+                "Истероид",
+                "Неустойчивый",
+                "Шизоид"
+            ],
+            datasets: [{
+                data: [{{ clients.Senzitiv }}, {{ clients.Labil }}, {{ clients.Astenik }}, {{ clients.Gipertim }}, {{ clients.Epipetoid }},{{ clients.Isteroid }},{{ clients.Neustoich }},{{ clients.Shizoid }}],
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#FF6384",
+                    "#FFCE56",
+                    "#36A2EB",
+                    "#FF6384",
+                    "#FFCE56"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#FF6384",
+                    "#FFCE56",
+                    "#36A2EB",
+                    "#FF6384",
+                    "#FFCE56"
+                ]
+            }]
+        };
+        Chart.pluginService.register({
+            beforeRender: function (chart) {
+                if (chart.config.options.showAllTooltips) {
+                    // create an array of tooltips
+                    // we can't use the chart tooltip because there is only one tooltip per chart
+                    chart.pluginTooltips = [];
+                    chart.config.data.datasets.forEach(function (dataset, i) {
+                        chart.getDatasetMeta(i).data.forEach(function (sector, j) {
+                            chart.pluginTooltips.push(new Chart.Tooltip({
+                                _chart: chart.chart,
+                                _chartInstance: chart,
+                                _data: chart.data,
+                                _options: chart.options.tooltips,
+                                _active: [sector]
+                            }, chart));
+                        });
+                    });
 
-    });
+                    // turn off normal tooltips
+                    chart.options.tooltips.enabled = false;
+                }
+            },
+            afterDraw: function (chart, easing) {
+                if (chart.config.options.showAllTooltips) {
+                    // we don't want the permanent tooltips to animate, so don't do anything till the animation runs atleast once
+                    if (!chart.allTooltipsOnce) {
+                        if (easing !== 1)
+                            return;
+                        chart.allTooltipsOnce = true;
+                    }
+
+                    // turn on tooltips
+                    chart.options.tooltips.enabled = true;
+                    Chart.helpers.each(chart.pluginTooltips, function (tooltip) {
+                        tooltip.initialize();
+                        tooltip.update();
+                        // we don't actually need this since we are not animating tooltips
+                        tooltip.pivot();
+                        tooltip.transition(easing).draw();
+                    });
+                    chart.options.tooltips.enabled = false;
+                }
+            }
+        });
+
+        var pieChart = new Chart(ctx, {
+            type: 'pie',
+            data: chartData,
+            options: {
+                showAllTooltips: true
+            }
+        })
+    })
 </script>
 

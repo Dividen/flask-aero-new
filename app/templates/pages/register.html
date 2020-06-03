@@ -1,19 +1,18 @@
 <div class="content">
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Register</h4>
+                        <h4 class="card-title">Регистрация</h4>
 
                         <br />
                         {% if msg %}
                             <p>{{ msg | safe }}</p>
                         {% else %}
-                            Add your credentials 
+                            Добавьте логин и пароль
                             <br />
-                            OR <a href={{ url_for('login') }} >authenticate</a> using an existing account.                            
+                            либо <a href={{ url_for('login') }} >авторизируйтесь</a> существующим логином.
                         {% endif %}
                     </div>
 
@@ -27,7 +26,7 @@
 
                                 <div class="col-md-1 px-1">
                                     <div class="form-group">
-                                        <label>Username</label>
+                                        <label>Логин</label>
                                     </div>
                                 </div>
 
@@ -59,7 +58,7 @@
 
                                 <div class="col-md-1 pl-1">
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <label>Пароль</label>
                                     </div>
                                 </div>
 
@@ -72,7 +71,7 @@
                             </div>
 
                             <input type='submit' name='submit' value='Register' class="primary"/> 
-                            &nbsp; &nbsp; Have an account? <a href={{ url_for('login') }} >Login</a>
+                            &nbsp; &nbsp; Есть учетная запись? <a href={{ url_for('login') }} >Авторизация</a>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -81,6 +80,5 @@
 
         </div>
     </div>
-
 </div>
             

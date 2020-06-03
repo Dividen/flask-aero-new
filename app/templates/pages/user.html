@@ -1,82 +1,80 @@
-<div class="content">
-                <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Edit Profile</h4>
+                                    <h4 class="card-title">Профиль клиента</h4>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
-                                            <div class="col-md-5 pr-1">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Company (disabled)</label>
-                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                                                    <label>Фамилия</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value={{ clients.FirstName}}>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 px-1">
+                                            <div class="col-md-offset-3">
                                                 <div class="form-group">
-                                                    <label>Username</label>
-                                                    <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                                    <label>Имя</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Username" value={{ clients.SecondName }}>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 pl-1">
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email address</label>
-                                                    <input type="email" class="form-control" placeholder="Email">
+                                                    <label>Отчество</label>
+                                                    <input type="email" class="form-control" placeholder="Email" disabled="" value={{ clients.LastName }}>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="col-md-offset-3">
+                                                <div class="form-group">
+                                                    <label>Пол</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value={{ clients.Sex }}>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Гражданство</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Last Name" value={{ clients.Citizen }}>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-offset-4">
+                                                <div class="form-group">
+                                                    <label>Семейное положение</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Home Address" value={{ clients.Family }}>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                        <div class="form-group">
+                                                        <label>Город</label>
+                                                        <input type="text" class="form-control" disabled="" placeholder="City" value={{ clients.City }}>
+                                                    </div>
+                                                </div>
+                                            <div class="col-md-offset-4">
+                                                    <div class="form-group">
+                                                        <label>Номер УПЛ</label>
+                                                        <input type="text" class="form-control" disabled="" placeholder="Country" value={{ clients.NumberUPL }}>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <div class="row">
-                                            <div class="col-md-6 pr-1">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>First Name</label>
-                                                    <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                    <label>Телефон</label>
+                                                    <input type="text" class="form-control" placeholder="ZIP Code" disabled="" value={{ clients.Phone }}>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 pl-1">
-                                                <div class="form-group">
-                                                    <label>Last Name</label>
-                                                    <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                                <div class="col-md-offset-4">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" class="form-control" disabled="" placeholder="Country" value={{ clients.Email }}>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Address</label>
-                                                    <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4 pr-1">
-                                                <div class="form-group">
-                                                    <label>City</label>
-                                                    <input type="text" class="form-control" placeholder="City" value="Mike">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 px-1">
-                                                <div class="form-group">
-                                                    <label>Country</label>
-                                                    <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label>Postal Code</label>
-                                                    <input type="number" class="form-control" placeholder="ZIP Code">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>About Me</label>
-                                                    <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                                                </div>
-                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                                         <div class="clearfix"></div>
@@ -92,18 +90,13 @@
                                 <div class="card-body">
                                     <div class="author">
                                         <a href="#">
-                                            <img class="avatar border-gray" src="/static/assets/img/faces/face-3.jpg" alt="...">
-                                            <h5 class="title">Mike Andrew</h5>
+                                            <img class="avatar border-gray" src="/static/assets/img/faces/{{ pictures }}">
+                                            <h5 class="title">{{ clients.FirstName }} {{ clients.LastName }}</h5>
                                         </a>
                                         <p class="description">
-                                            michael24
+                                            {{ clients.ClientStatus }}
                                         </p>
                                     </div>
-                                    <p class="description text-center">
-                                        "Lamborghini Mercy
-                                        <br> Your chick she so thirsty
-                                        <br> I'm in that two seat Lambo"
-                                    </p>
                                 </div>
                                 <hr>
                                 <div class="button-container mr-auto ml-auto">
@@ -120,6 +113,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                            <div class="col-md-5">
+                                <div class="card">
+                                    <div class="card-body special-card">
+                                        <canvas id="myChart" width="150" height="150"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-md-5">
+                            <div class="card">
+                            <canvas id="radar-chart" width="150" height="148"></canvas>
+                                </div>
+                        </div>
+                    </div>

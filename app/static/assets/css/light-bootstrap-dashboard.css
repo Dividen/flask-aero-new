@@ -586,13 +586,13 @@ body>.navbar-collapse:before {
 
 .sidebar:after,
 body>.navbar-collapse:after {
-    background: #9368E9;
-    background: -moz-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9368E9), color-stop(100%, #943bea));
-    background: -webkit-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -o-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -ms-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: linear-gradient(to bottom, #9368E9 0%, #943bea 100%);
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
     background-size: 150% 150%;
     z-index: 3;
     opacity: 1;
@@ -643,13 +643,13 @@ body>.navbar-collapse[data-color="azure"]:after {
 
 .sidebar[data-color="green"]:after,
 body>.navbar-collapse[data-color="green"]:after {
-    background: #87CB16;
-    background: -moz-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #87CB16), color-stop(100%, #6dc030));
-    background: -webkit-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-    background: -o-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-    background: -ms-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-    background: linear-gradient(to bottom, #87CB16 0%, #6dc030 100%);
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
     background-size: 150% 150%;
 }
 
@@ -686,6 +686,18 @@ body>.navbar-collapse[data-color="purple"]:after {
     background: -o-linear-gradient(top, #9368E9 0%, #943bea 100%);
     background: -ms-linear-gradient(top, #9368E9 0%, #943bea 100%);
     background: linear-gradient(to bottom, #9368E9 0%, #943bea 100%);
+    background-size: 150% 150%;
+}
+
+.sidebar[data-color="white"]:after,
+body>.navbar-collapse[data-color="white"]:after {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
     background-size: 150% 150%;
 }
 
@@ -2309,6 +2321,10 @@ fieldset[disabled] .form-control {
 }
 
 .navbar-ct-green {
+    background-color: #ffffff;
+}
+
+.navbar-ct-white {
     background-color: #a1e82c;
 }
 
@@ -2723,6 +2739,11 @@ Copyright (c) 2015 Daniel Eden
 
 .dropdown-menu.ct-green>li>a:hover,
 .dropdown-menu.ct-green>li>a:focus {
+    background-color: rgb(255,255,255);
+}
+
+.dropdown-menu.ct-white>li>a:hover,
+.dropdown-menu.ct-white>li>a:focus {
     background-color: rgba(135, 203, 22, 0.2);
 }
 

@@ -34,8 +34,7 @@
 
 </head>
 
-<body>
-
+<body background="/static/assets/img/full-screen-image-3.jpg">
     <div class="wrapper">
 
         {% include 'includes/sidebar.html' %}
@@ -46,14 +45,8 @@
 
             {{ content | safe }}
 
-            {% include 'includes/footer.html' %}
-    
         </div>
-
     </div>
-
 </body>
-
-{% include 'includes/scripts.html' %}
-
+    {% include 'includes/scripts.html' %}
 </html>

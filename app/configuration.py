@@ -1,9 +1,3 @@
-# -*- encoding: utf-8 -*-
-"""
-License: MIT
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 import os
 
 # Grabs the folder where the script runs.
@@ -15,5 +9,6 @@ class Config():
 	SECRET_KEY   = "77tgFCdrEEdv77554##@3" 
 	
 	SQLALCHEMY_TRACK_MODIFICATIONS 	= False
+	SQLALCHEMY_ECHO = False
 
 	SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'database.db')
