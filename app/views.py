@@ -132,7 +132,6 @@ def index(path):
         return redirect(url_for('login'))
 
     content = None
-
     try:
 
         # try to match the pages defined in -> pages/<input file>
