@@ -37,6 +37,7 @@ def logout():
 # Register a new user
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
+    clients = db.session.query(Client).first()
     # cut the page for authenticated users
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -48,7 +49,7 @@ def register():
 
     if request.method == 'GET':
         return render_template('layouts/default.html',
-                               content=render_template('pages/register.html', form=form, msg=msg))
+                               content=render_template('pages/register.html', form=form, msg=msg, clients=clients),clients=clients)
 
     # check if both http method is POST and form is valid on submit
     if form.validate_on_submit():
@@ -65,7 +66,7 @@ def register():
         user_by_email = User.query.filter_by(email=email).first()
 
         if user or user_by_email:
-            msg = 'Error: User exists!'
+            msg = 'Ошибка: Пользователь не найден!'
 
         else:
 
@@ -75,13 +76,13 @@ def register():
 
             user.save()
 
-            msg = 'User created, please <a href="' + url_for('login') + '">login</a>'
+            msg = 'Пользователь создан, пожалуйста перейдите по ссылке <a href="' + url_for('login') + '">login</a>'
 
     else:
         msg = 'Input error'
 
     return render_template('layouts/default.html',
-                           content=render_template('pages/register.html', form=form, msg=msg))
+                           content=render_template('pages/register.html', form=form, msg=msg,clients=clients),clients=clients)
 
 
 # Authenticate user
@@ -115,9 +116,9 @@ def login():
                 login_user(user)
                 return redirect(url_for('index'))
             else:
-                msg = "Wrong password. Please try again."
+                msg = "Неверный пароль попробуйте ещё раз."
         else:
-            msg = "Unkown user - please register."
+            msg = "Незнакомый пользователь - зарегестрируйтесь."
 
     return render_template('layouts/default.html',
                            content=render_template('pages/login.html', form=form, msg=msg,clients=clients),clients=clients)
